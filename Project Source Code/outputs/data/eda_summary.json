@@ -1,0 +1,49 @@
+{
+  "shape": [
+    115,
+    11
+  ],
+  "columns": [
+    "Temp",
+    "Humidity",
+    "Cloud Cover",
+    "ANNUAL",
+    "Jan-Feb",
+    "Mar-May",
+    "Jun-Sep",
+    "Oct-Dec",
+    "avgjune",
+    "sub",
+    "flood"
+  ],
+  "missing_values": {
+    "Temp": 0,
+    "Humidity": 0,
+    "Cloud Cover": 0,
+    "ANNUAL": 0,
+    "Jan-Feb": 0,
+    "Mar-May": 0,
+    "Jun-Sep": 0,
+    "Oct-Dec": 0,
+    "avgjune": 0,
+    "sub": 0,
+    "flood": 0
+  },
+  "target_distribution": {
+    "0": 99,
+    "1": 16
+  },
+  "correlation_with_target": {
+    "flood": 1.0,
+    "Jun-Sep": 0.70520217576761,
+    "ANNUAL": 0.6268735373807425,
+    "avgjune": 0.3797780983528066,
+    "sub": 0.34982844974591076,
+    "Cloud Cover": 0.0898009756704495,
+    "Humidity": 0.020249673018209652,
+    "Mar-May": -0.01759804332599039,
+    "Oct-Dec": -0.024851851545037426,
+    "Temp": -0.08094622733285754,
+    "Jan-Feb": -0.0844461985489753
+  }
+}

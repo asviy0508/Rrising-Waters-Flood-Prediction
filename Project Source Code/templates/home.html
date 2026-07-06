@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 Rising Waters - Flood Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="landing-page">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <span class="logo-icon">🌊</span>
+                    <span class="logo-text">Rising Waters</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="{{ url_for('predict_form') }}" class="nav-btn">Predict Now</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1 class="hero-title">🌊 Flood Risk Prediction</h1>
+                <p class="hero-subtitle">
+                    Advanced AI-powered system to predict flood risk using weather parameters
+                </p>
+                <div class="hero-buttons">
+                    <a href="{{ url_for('predict_form') }}" class="btn btn-primary">🔮 Start Prediction</a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-wave">
+                <svg viewBox="0 0 1440 320">
+                    <path fill="#667eea" fill-opacity="0.2" d="M0,96L48,117.3C96,139,192,181,288,181.3C384,181,480,139,576,122.7C672,107,768,117,864,138.7C960,160,1056,192,1152,186.7C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title">About Rising Waters</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-icon">🤖</div>
+                        <h3>AI-Powered</h3>
+                        <p>Utilizes XGBoost machine learning algorithm with 96.55% accuracy for reliable flood predictions</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">📊</div>
+                        <h3>Real-Time Analysis</h3>
+                        <p>Processes weather parameters instantly to provide immediate flood risk assessment</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">🌍</div>
+                        <h3>Accessible</h3>
+                        <p>Simple web interface accessible from any device with a browser</p>
+                    </div>
+                    <div class="about-card">
+                        <div class="about-icon">📈</div>
+                        <h3>Accurate</h3>
+                        <p>Trained on comprehensive flood dataset with multiple weather features</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h4>Enter Weather Data</h4>
+                        <p>Input temperature, humidity, rainfall, and other weather parameters</p>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h4>AI Analysis</h4>
+                        <p>Our XGBoost model analyzes the data instantly</p>
+                    </div>
+                    <div class="step-arrow">→</div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h4>Get Results</h4>
+                        <p>Receive immediate flood risk assessment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Check Flood Risk?</h2>
+                <p>Get instant predictions using our advanced AI system</p>
+                <a href="{{ url_for('predict_form') }}" class="btn btn-primary btn-large">🔮 Predict Now</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>© 2024 Rising Waters - Flood Prediction System</p>
+                <p>Powered by XGBoost | Flask | AI</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

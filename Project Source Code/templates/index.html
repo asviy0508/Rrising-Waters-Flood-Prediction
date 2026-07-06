@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 Predict Flood Risk</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="form-page">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <span class="logo-icon">🌊</span>
+                    <span class="logo-text">Rising Waters</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('predict_form') }}" class="active">Predict</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="form-container">
+            <div class="form-header">
+                <h1>🔮 Flood Risk Prediction</h1>
+                <p>Enter the weather parameters below to check flood risk</p>
+            </div>
+
+            <form action="{{ url_for('predict_result') }}" method="POST" id="predictionForm" class="prediction-form">
+                <div class="form-grid">
+                    {% for feature in features %}
+                    <div class="form-group">
+                        <label for="{{ feature }}">
+                            {{ feature.replace('_', ' ').title() }}
+                            <span class="required">*</span>
+                        </label>
+                        <input type="number" 
+                               step="any" 
+                               id="{{ feature }}" 
+                               name="{{ feature }}" 
+                               placeholder="Enter {{ feature.replace('_', ' ') }}"
+                               required
+                               class="form-input">
+                        <div class="error-message" id="{{ feature }}-error"></div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span class="btn-icon">🔮</span>
+                        Predict Flood Risk
+                    </button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </form>
+
+            <div class="form-info">
+                <p>⚠️ All fields are required. Enter valid numerical values.</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p>© 2024 Rising Waters - Flood Prediction System</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

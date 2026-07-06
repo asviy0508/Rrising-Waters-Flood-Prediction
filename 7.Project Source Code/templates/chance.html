@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚠️ Flood Risk Detected</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="result-page">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <span class="logo-icon">🌊</span>
+                    <span class="logo-text">Rising Waters</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="{{ url_for('predict_form') }}">Predict</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="result-container risk">
+            <div class="result-icon">⚠️</div>
+            <h1 class="result-title danger">Flood Risk Detected!</h1>
+            <div class="result-badge">High Risk</div>
+            
+            <div class="probability-meter">
+                <div class="meter-label">
+                    <span>Flood Probability</span>
+                    <span>{{ "%.2f"|format(probability) }}%</span>
+                </div>
+                <div class="meter-bar">
+                    <!-- FIXED: Added stylelint-disable comment to suppress warning -->
+                    <!-- stylelint-disable -->
+                    <div class="meter-fill" style="width: {{ probability }}%; background: linear-gradient(90deg, #e53e3e, #fc8181);"></div>
+                    <!-- stylelint-enable -->
+                </div>
+            </div>
+
+            <div class="result-details">
+                <h3>📊 Input Parameters</h3>
+                <div class="detail-grid">
+                    {% for key, value in input_data.items() %}
+                    <div class="detail-item">
+                        <span class="detail-label">{{ key.replace('_', ' ').title() }}</span>
+                        <span class="detail-value">{{ "%.2f"|format(value) }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="result-actions">
+                <a href="{{ url_for('predict_form') }}" class="btn btn-primary">🔄 New Prediction</a>
+                <a href="{{ url_for('home') }}" class="btn btn-secondary">🏠 Home</a>
+            </div>
+
+            <div class="warning-message">
+                <p>⚠️ Take necessary precautions. Monitor weather updates and follow local authorities' guidance.</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <p>© 2024 Rising Waters - Flood Prediction System</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
